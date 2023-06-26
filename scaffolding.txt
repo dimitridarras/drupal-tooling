@@ -1,0 +1,40 @@
+#install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/user/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+#install composer
+brew install composer
+
+brew install git
+
+composer create-project drupal/recommended-project my-project
+
+#specify a version
+
+composer create-project drupal/recommended-project:8.9.1 my-project
+
+composer show drupal/recommended-project --all
+
+#configure the location and name of vendor dir
+composer config vendor-dir vendor
+
+#add packagist external
+composer config repositories.1 composer https://asset-packagist.org
+
+# Source of preferred install
+composer  config preferred-install dist 
+(auto, source, dist - drupal.org)
+
+composer require drupal/module.name
+
+composer require drush/drush  --no-update
+composer require drupal/stage_file_proxy  --no-update
+composer require drupal/mysql56  --no-update
+composer require cweagans/composer-patches --no-update
+
+#composer config for acquia
+github.com/acquia/acquia-ra-composer
+
